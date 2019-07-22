@@ -99,7 +99,7 @@ exports.find = (req, res, next) => {
     });
 };
 
-exports.update = (req, res, next) => {
+exports.updateAttendee = (req, res, next) => {
     const id = req.params.id;
     const updateObject = req.body;
     Attendees.findByIdAndUpdate({_id: id}, {$set: updateObject})
@@ -128,8 +128,8 @@ exports.update = (req, res, next) => {
 };
 
 
-exports.delete = (req, res, next) => {
-    Attendees.findByIdAndDelete({id: req.params.id})
+exports.deleteAttendee = (req, res, next) => {
+    Attendees.findByIdAndDelete({_id: req.params.id})
         .then(deleted_attendee => {
             if (!deleted_attendee) {
                 return res.status(BAD_REQUEST).json({

@@ -42,7 +42,7 @@ exports.create = (req, res, next) => {
 };
 
 
-exports.update = (req, res, next) => {
+exports.updateTalk = (req, res, next) => {
     const id = req.params.id;
     const updateObject = req.body;
     Talks.findByIdAndUpdate({_id: id}, {$set: updateObject})
